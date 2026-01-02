@@ -285,7 +285,7 @@ func _on_enter_webxr_button_pressed() -> void:
 	xr_interface.session_mode = 'immersive-ar' if enable_passthrough else 'immersive-vr'
 	xr_interface.requested_reference_space_types = 'local-floor, local'
 	xr_interface.required_features = 'local-floor'
-	xr_interface.optional_features = 'local-floor'
+	xr_interface.optional_features = 'local'
 
 	# Add hand-tracking if enabled in the project settings
 	if ProjectSettings.get_setting_with_override("xr/openxr/extensions/hand_tracking"):
