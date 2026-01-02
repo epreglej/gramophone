@@ -33,6 +33,12 @@ jobs:
         cache: true
         archive_output: false
         use_preset_export_path: true
+        
+    # Move files out of the "Web" folder so they go directly into gh-pages root
+    - name: Move Web export files to root
+      run: |
+        mv ./exports/web/Web/* ./exports/web/
+        rm -rf ./exports/web/Web
 
       # This release action has worked well for me. However, you can most likely use any release action of your choosing.
       # https://github.com/ncipollo/release-action
