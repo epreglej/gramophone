@@ -1,0 +1,32 @@
+name: Deploy Godot Web App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Godot
+      run: |
+        GODOT_VERSION=4.5.1
+        wget https://downloads.tuxfamily.org/godotengine/$GODOT_VERSION/Godot_v${GODOT_VERSION}-stable_linux.x86_64.tar.xz
+        tar -xf Godot_v${GODOT_VERSION}-stable_linux.x86_64.tar.xz
+        chmod +x Godot_v${GODOT_VERSION}-stable_linux.x86_64
+        mv Godot_v${GODOT_VERSION}-stable_linux.x86_64 godot
+
+    - name: Export Godot project
+      run: |
+        ./godot --headless --export "HTML5" exports/web/index.html
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v6
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./exports/web
