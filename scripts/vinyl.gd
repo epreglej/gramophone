@@ -2,21 +2,40 @@
 extends XRToolsPickable
 class_name Vinyl
 
-
 enum VinylSide { A, B }
-
-
-@export var _song_a: Song
-@export var _song_b: Song
-
-
 var side: VinylSide = VinylSide.A
-var song: Song:
-	get:
-		return _song_a if side == VinylSide.A else _song_b
+
+@onready var snap_pivot: Node3D = $SnapPivot
 
 
-# Update the side based on world rotation
+# Decide which side is up BEFORE snapping
 func update_side_before_snapping() -> void:
-	var up_vec := global_transform.basis.y
-	side = VinylSide.A if up_vec.dot(Vector3.UP) > 0.0 else VinylSide.B
+	# Use world-space up direction
+	var vinyl_up: Vector3 = global_transform.basis.y
+	var dot := vinyl_up.dot(Vector3.UP)
+
+	side = VinylSide.A if dot > 0.0 else VinylSide.B
+
+
+# XRTools hook — DO NOT REMOVE
+func pick_up(by: Node3D) -> void:
+	# 1️⃣ Read orientation BEFORE grab driver exists
+	update_side_before_snapping()
+
+	# 2️⃣ Let XRTools create grab driver & snap
+	super.pick_up(by)
+
+	# 3️⃣ Apply visual rotation AFTER grab driver is active
+	call_deferred("_apply_snap_orientation")
+
+
+func _apply_snap_orientation() -> void:
+	if not is_instance_valid(snap_pivot):
+		return
+
+	# Reset first (important if reused)
+	snap_pivot.basis = Basis.IDENTITY
+
+	# Flip visually for side B
+	if side == VinylSide.B:
+		snap_pivot.basis = Basis(Vector3.RIGHT, PI)

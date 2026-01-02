@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwienhj3didby"]
+[gd_scene load_steps=6 format=3 uid="uid://dwienhj3didby"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_k71av"]
 [ext_resource type="Script" uid="uid://dkt7xnt7tmgdw" path="res://scripts/vinyl.gd" id="2_p506p"]
-[ext_resource type="Resource" uid="uid://dlphk0c3ps4qx" path="res://data/cole_porter_empezad_la_beguine.tres" id="3_5q42x"]
-[ext_resource type="Resource" uid="uid://be17ke2vdkdu8" path="res://data/cole_porter_noche_y_dia.tres" id="3_5us2q"]
 [ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="7_mucuw"]
 [ext_resource type="PackedScene" uid="uid://dmbv5u2dwmkye" path="res://models/vinyls/vinyl_cole_porter/glb/vinyl_cole_porter.glb" id="7_n8xky"]
 
@@ -13,14 +11,14 @@ radius = 0.1
 
 [node name="VinylColePorter" groups=["Vinyls"] instance=ExtResource("1_k71av")]
 script = ExtResource("2_p506p")
-_song_a = ExtResource("3_5q42x")
-_song_b = ExtResource("3_5us2q")
 ranged_grab_method = 0
 second_hand_grab = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("CylinderShape3D_5q42x")
 
-[node name="GrabPointSnap" parent="." index="1" instance=ExtResource("7_mucuw")]
+[node name="SnapPivot" type="Node3D" parent="." index="1"]
 
-[node name="Model" parent="." index="2" instance=ExtResource("7_n8xky")]
+[node name="GrabPointSnap" parent="SnapPivot" index="0" instance=ExtResource("7_mucuw")]
+
+[node name="Model" parent="SnapPivot" index="1" instance=ExtResource("7_n8xky")]
