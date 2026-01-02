@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://05erjyspbbh7"]
+[gd_scene load_steps=21 format=3 uid="uid://05erjyspbbh7"]
 
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_bf3um"]
+[ext_resource type="Script" uid="uid://j86yc3k7w37g" path="res://scripts/active_input_method_controller.gd" id="2_qt76e"]
 [ext_resource type="Texture2D" uid="uid://bdktybj8dp4ui" path="res://skyboxes/sky.hdr" id="2_tw3kd"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="3_tw3kd"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_bf3um"]
@@ -48,7 +49,11 @@ directional_shadow_mode = 0
 
 [node name="StartXR" parent="." instance=ExtResource("1_bf3um")]
 
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
+[node name="XROrigin3D" type="XROrigin3D" parent="." node_paths=PackedStringArray("left_joystick_controller", "left_hand_controller", "left_hand_origin")]
+script = ExtResource("2_qt76e")
+left_joystick_controller = NodePath("LeftJoystickController")
+left_hand_controller = NodePath("LeftHandController")
+left_hand_origin = NodePath("LeftHandOrigin")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -57,7 +62,6 @@ environment = SubResource("Environment_eji0w")
 [node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" instance=ExtResource("3_tw3kd")]
 
 [node name="LeftJoystickController" type="XRController3D" parent="XROrigin3D"]
-process_mode = 4
 tracker = &"left_hand"
 show_when_tracked = true
 
