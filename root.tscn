@@ -127,6 +127,7 @@ tracker = &"/user/hand_tracker/right"
 [node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/RightHandOrigin/RightHandHumanoid/RightHandHumanoid/Skeleton3D" index="1"]
 
 [node name="HandPoseController" parent="XROrigin3D/RightHandOrigin" instance=ExtResource("11_r3r3k")]
+controller_tracker_name = "/user/hand_pose_controller/right"
 controller_action_map = SubResource("Resource_3dlgs")
 
 [node name="Environment" type="StaticBody3D" parent="."]
