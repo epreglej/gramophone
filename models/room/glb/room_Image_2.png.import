@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d25foyytngfnh"
-path.s3tc="res://.godot/imported/room_painted_plaster_wall_nor_gl.png-1bac27da9fb9bd3a4590d40bcada767f.s3tc.ctex"
+uid="uid://bolkvdwiia10i"
+path.s3tc="res://.godot/imported/room_Image_2.png-cf532a7387a5a9e45ad9083d3d4045a6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d50f48ebaa94a81b46429b6eb50977a9"
+"md5": "db8358370ce50f96c4c9146e505266e4"
 }
 
 [deps]
 
-source_file="res://models/glbs/room/room_painted_plaster_wall_nor_gl.png"
-dest_files=["res://.godot/imported/room_painted_plaster_wall_nor_gl.png-1bac27da9fb9bd3a4590d40bcada767f.s3tc.ctex"]
+source_file="res://models/room/glb/room_Image_2.png"
+dest_files=["res://.godot/imported/room_Image_2.png-cf532a7387a5a9e45ad9083d3d4045a6.s3tc.ctex"]
 
 [params]
 
@@ -30,7 +30,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://models/glbs/room/room_painted_plaster_wall_nor_gl.png"
+roughness/src_normal="res://models/glbs/room/room_Image_2.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

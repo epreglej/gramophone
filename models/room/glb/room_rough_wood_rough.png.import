@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drbf635wvudsa"
-path.s3tc="res://.godot/imported/room_rough_wood_rough.png-e530a1f4858ec4c43c10b6e4c0ccfad4.s3tc.ctex"
+path.s3tc="res://.godot/imported/room_rough_wood_rough.png-da44ce064f0b5356158bc1a09f29c950.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://models/glbs/room/room_rough_wood_rough.png"
-dest_files=["res://.godot/imported/room_rough_wood_rough.png-e530a1f4858ec4c43c10b6e4c0ccfad4.s3tc.ctex"]
+source_file="res://models/room/glb/room_rough_wood_rough.png"
+dest_files=["res://.godot/imported/room_rough_wood_rough.png-da44ce064f0b5356158bc1a09f29c950.s3tc.ctex"]
 
 [params]
 

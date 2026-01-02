@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhcf6alica15t"
-path.s3tc="res://.godot/imported/room_white_sandstone_bricks_03_diff.jpg-272539addc18679d5e32a9881ef6912a.s3tc.ctex"
+uid="uid://bqtrntpgl85qc"
+path.s3tc="res://.godot/imported/room_Image_1.png-eb65b6d73608a303a11f1836a4b8263e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "9e1800568589668f83b08fc2287457e5"
+"md5": "835d8e615b423804d937185bce814df3"
 }
 
 [deps]
 
-source_file="res://models/glbs/room/room_white_sandstone_bricks_03_diff.jpg"
-dest_files=["res://.godot/imported/room_white_sandstone_bricks_03_diff.jpg-272539addc18679d5e32a9881ef6912a.s3tc.ctex"]
+source_file="res://models/room/glb/room_Image_1.png"
+dest_files=["res://.godot/imported/room_Image_1.png-eb65b6d73608a303a11f1836a4b8263e.s3tc.ctex"]
 
 [params]
 
@@ -29,8 +29,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=8
+roughness/src_normal="res://models/glbs/room/room_Image_2.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

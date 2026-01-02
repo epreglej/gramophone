@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch8gl8i0vm3fx"
-path.s3tc="res://.godot/imported/room_Image_0_12.png-985e3acef996ffcde0a7478b6459f68b.s3tc.ctex"
+uid="uid://cjq8ans3jifm5"
+path.s3tc="res://.godot/imported/room_rough_wood_diff.jpg-2e1d3804b49385cd473f438d69c84a4e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "220dcebb50d4d46b1d09bd207d19ae38"
+"md5": "5f494e0abc93b30e9f025e92695be4a3"
 }
 
 [deps]
 
-source_file="res://models/glbs/room/room_Image_0_12.png"
-dest_files=["res://.godot/imported/room_Image_0_12.png-985e3acef996ffcde0a7478b6459f68b.s3tc.ctex"]
+source_file="res://models/room/glb/room_rough_wood_diff.jpg"
+dest_files=["res://.godot/imported/room_rough_wood_diff.jpg-2e1d3804b49385cd473f438d69c84a4e.s3tc.ctex"]
 
 [params]
 

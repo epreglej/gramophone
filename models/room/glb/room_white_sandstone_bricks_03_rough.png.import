@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd8va8orixqrn"
-path.s3tc="res://.godot/imported/room_white_sandstone_bricks_03_rough.png-a8d73cb1bd6d7dbe181ffbd8b463f087.s3tc.ctex"
+path.s3tc="res://.godot/imported/room_white_sandstone_bricks_03_rough.png-60fc2dc684df62e954a067068c068b49.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://models/glbs/room/room_white_sandstone_bricks_03_rough.png"
-dest_files=["res://.godot/imported/room_white_sandstone_bricks_03_rough.png-a8d73cb1bd6d7dbe181ffbd8b463f087.s3tc.ctex"]
+source_file="res://models/room/glb/room_white_sandstone_bricks_03_rough.png"
+dest_files=["res://.godot/imported/room_white_sandstone_bricks_03_rough.png-60fc2dc684df62e954a067068c068b49.s3tc.ctex"]
 
 [params]
 

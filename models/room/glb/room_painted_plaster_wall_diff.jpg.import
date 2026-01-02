@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6rmown5s0362"
-path.s3tc="res://.godot/imported/room_white_sandstone_bricks_03_nor_gl.png-17c768433dd2ca9fe1c87fd85a92dace.s3tc.ctex"
+uid="uid://b88kxdqfja3hh"
+path.s3tc="res://.godot/imported/room_painted_plaster_wall_diff.jpg-bd2dd2fd0bd62ee4f68bfd62046bb0c1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "97ddf25f8b841e8f4c813ac5e01d67c0"
+"md5": "8863ea79d430a038591f8c27e3dede7b"
 }
 
 [deps]
 
-source_file="res://models/glbs/room/room_white_sandstone_bricks_03_nor_gl.png"
-dest_files=["res://.godot/imported/room_white_sandstone_bricks_03_nor_gl.png-17c768433dd2ca9fe1c87fd85a92dace.s3tc.ctex"]
+source_file="res://models/room/glb/room_painted_plaster_wall_diff.jpg"
+dest_files=["res://.godot/imported/room_painted_plaster_wall_diff.jpg-bd2dd2fd0bd62ee4f68bfd62046bb0c1.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://models/glbs/room/room_white_sandstone_bricks_03_nor_gl.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

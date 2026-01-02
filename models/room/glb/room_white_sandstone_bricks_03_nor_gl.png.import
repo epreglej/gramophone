@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqtrntpgl85qc"
-path.s3tc="res://.godot/imported/room_Image_1.png-117978250582e4827a0816f3dec8c146.s3tc.ctex"
+uid="uid://6rmown5s0362"
+path.s3tc="res://.godot/imported/room_white_sandstone_bricks_03_nor_gl.png-79c0027822300861cd524950c8138e9a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "835d8e615b423804d937185bce814df3"
+"md5": "97ddf25f8b841e8f4c813ac5e01d67c0"
 }
 
 [deps]
 
-source_file="res://models/glbs/room/room_Image_1.png"
-dest_files=["res://.godot/imported/room_Image_1.png-117978250582e4827a0816f3dec8c146.s3tc.ctex"]
+source_file="res://models/room/glb/room_white_sandstone_bricks_03_nor_gl.png"
+dest_files=["res://.godot/imported/room_white_sandstone_bricks_03_nor_gl.png-79c0027822300861cd524950c8138e9a.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=8
-roughness/src_normal="res://models/glbs/room/room_Image_2.png"
+roughness/mode=1
+roughness/src_normal="res://models/glbs/room/room_white_sandstone_bricks_03_nor_gl.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

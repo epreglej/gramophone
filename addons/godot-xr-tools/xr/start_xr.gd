@@ -283,9 +283,9 @@ func _on_webxr_session_failed(message: String) -> void:
 func _on_enter_webxr_button_pressed() -> void:
 	# Configure the WebXR interface
 	xr_interface.session_mode = 'immersive-ar' if enable_passthrough else 'immersive-vr'
-	xr_interface.requested_reference_space_types = 'bounded-floor, local-floor, local'
+	xr_interface.requested_reference_space_types = 'local-floor, local'
 	xr_interface.required_features = 'local-floor'
-	xr_interface.optional_features = 'bounded-floor'
+	xr_interface.optional_features = 'local-floor'
 
 	# Add hand-tracking if enabled in the project settings
 	if ProjectSettings.get_setting_with_override("xr/openxr/extensions/hand_tracking"):
