@@ -45,4 +45,4 @@ func _apply_snap_orientation() -> void:
 	
 	# Rotate around X axis for side B (flip over physically)
 	if side == VinylSide.B:
-		snap_pivot.rotate(Vector3(1, 0, 0), PI)
+		snap_pivot.rotate(Vector3(0, 0, 1), PI)
