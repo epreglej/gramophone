@@ -158,9 +158,8 @@ freeze = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8248501, -1.2290809)
 text = "Text"
 
-[node name="VinylSnapZone" parent="Environment" node_paths=PackedStringArray("label") instance=ExtResource("16_sq7yr")]
+[node name="VinylSnapZone" parent="Environment" instance=ExtResource("16_sq7yr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.45)
-label = NodePath("../Label3D")
 
 [editable path="XROrigin3D/LeftHandOrigin/LeftHandHumanoid"]
 [editable path="XROrigin3D/RightHandOrigin/RightHandHumanoid"]
