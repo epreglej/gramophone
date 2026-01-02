@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://05erjyspbbh7"]
+[gd_scene load_steps=24 format=3 uid="uid://05erjyspbbh7"]
 
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_bf3um"]
 [ext_resource type="Script" uid="uid://j86yc3k7w37g" path="res://scripts/active_input_method_controller.gd" id="2_qt76e"]
@@ -12,9 +12,10 @@
 [ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="8_qt76e"]
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="11_r3r3k"]
 [ext_resource type="Script" uid="uid://bwsl8u7uybb5c" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="12_blcw0"]
-[ext_resource type="PackedScene" uid="uid://dwienhj3didby" path="res://scenes/pickable_cube.tscn" id="12_qw60f"]
+[ext_resource type="PackedScene" uid="uid://dwienhj3didby" path="res://scenes/vinyl_cole_porter.tscn" id="12_qw60f"]
 [ext_resource type="Script" uid="uid://dhppxvui1etbk" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="13_50g4q"]
 [ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="13_qt76e"]
+[ext_resource type="PackedScene" uid="uid://dnll2qmsm8jm7" path="res://scenes/vinyl_snap_zone.tscn" id="16_sq7yr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gd4vy"]
 panorama = ExtResource("2_tw3kd")
@@ -51,7 +52,7 @@ directional_shadow_mode = 0
 
 [node name="StartXR" parent="." instance=ExtResource("1_bf3um")]
 
-[node name="XROrigin3D" type="XROrigin3D" parent="." node_paths=PackedStringArray("left_joystick_controller", "left_hand_controller", "left_hand_origin", "left_hand_pose_detector", "right_joystick_controller", "right_hand_controller", "right_hand_origin", "right_hand_pose_detector", "label")]
+[node name="XROrigin3D" type="XROrigin3D" parent="." node_paths=PackedStringArray("left_joystick_controller", "left_hand_controller", "left_hand_origin", "left_hand_pose_detector", "right_joystick_controller", "right_hand_controller", "right_hand_origin", "right_hand_pose_detector")]
 script = ExtResource("2_qt76e")
 left_joystick_controller = NodePath("LeftJoystickController")
 left_hand_controller = NodePath("LeftHandController")
@@ -61,7 +62,6 @@ right_joystick_controller = NodePath("RightJoystickController")
 right_hand_controller = NodePath("RightHandController")
 right_hand_origin = NodePath("RightHandOrigin")
 right_hand_pose_detector = NodePath("RightHandOrigin/HandPoseController")
-label = NodePath("../Environment/Label3D")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -75,7 +75,7 @@ tracker = &"left_hand"
 [node name="LeftHand" parent="XROrigin3D/LeftJoystickController" instance=ExtResource("4_tw3kd")]
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftJoystickController" instance=ExtResource("4_bf3um")]
-grab_distance = 0.1
+grab_distance = 0.05
 ranged_enable = false
 ranged_distance = 0.0
 ranged_angle = 0.0
@@ -86,7 +86,7 @@ tracker = &"right_hand"
 [node name="RightHand" parent="XROrigin3D/RightJoystickController" instance=ExtResource("6_gd4vy")]
 
 [node name="FunctionPickup" parent="XROrigin3D/RightJoystickController" instance=ExtResource("4_bf3um")]
-grab_distance = 0.1
+grab_distance = 0.05
 ranged_enable = false
 ranged_distance = 0.0
 ranged_angle = 0.0
@@ -95,19 +95,22 @@ ranged_angle = 0.0
 tracker = &"/user/hand_pose_controller/left"
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHandController" instance=ExtResource("4_bf3um")]
-grab_distance = 0.1
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+grab_distance = 0.05
 ranged_enable = false
 ranged_distance = 0.0
 ranged_angle = 0.0
+hand_offset_mode = 2
 
 [node name="RightHandController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"/user/hand_pose_controller/right"
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHandController" instance=ExtResource("4_bf3um")]
-grab_distance = 0.1
+grab_distance = 0.05
 ranged_enable = false
 ranged_distance = 0.0
 ranged_angle = 0.0
+hand_offset_mode = 3
 
 [node name="LeftHandOrigin" type="XRNode3D" parent="XROrigin3D"]
 tracker = &"/user/hand_tracker/left"
@@ -132,25 +135,32 @@ controller_tracker_name = "/user/hand_pose_controller/right"
 controller_action_map = SubResource("Resource_3dlgs")
 hand_tracker_name = "/user/hand_tracker/right"
 
-[node name="Environment" type="StaticBody3D" parent="."]
+[node name="Environment" type="Node3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment"]
+[node name="Floor" type="StaticBody3D" parent="Environment"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor"]
 shape = SubResource("WorldBoundaryShape3D_bf3um")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("PlaneMesh_3dlgs")
+skeleton = NodePath("../..")
 
 [node name="Room" parent="Environment" instance=ExtResource("8_bf3um")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-mesh = SubResource("PlaneMesh_3dlgs")
-
-[node name="PickableCube" parent="Environment" instance=ExtResource("12_qw60f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64769137, -0.44877458)
+[node name="VinylColePorter" parent="Environment" instance=ExtResource("12_qw60f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, -0.45)
 freeze = true
 
 [node name="Label3D" type="Label3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8248501, -1.2290809)
 text = "Text"
+
+[node name="VinylSnapZone" parent="Environment" node_paths=PackedStringArray("label") instance=ExtResource("16_sq7yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.45)
+label = NodePath("../Label3D")
 
 [editable path="XROrigin3D/LeftHandOrigin/LeftHandHumanoid"]
 [editable path="XROrigin3D/RightHandOrigin/RightHandHumanoid"]

@@ -10,8 +10,6 @@ extends XROrigin3D
 @export var right_hand_origin: XRNode3D
 @export var right_hand_pose_detector: HandPoseDetector
 
-@export var label: Label3D  # optional debug label
-
 # Debounce timers to smooth initial detection
 var left_hand_ready := false
 var right_hand_ready := false
@@ -40,9 +38,6 @@ func _on_tracker_changed(name: StringName, _type):
 		right_hand_pose_detector.hand_tracker = XRServer.get_tracker(right_hand_pose_detector.hand_tracker_name)
 
 func _process(delta):
-	var hands_text := ""
-
-	### LEFT HAND ###
 	var left_using_hands := false
 	if left_hand_pose_detector and left_hand_pose_detector.hand_tracker:
 		var left_flags := left_hand_pose_detector.hand_tracker.get_hand_joint_flags(XRHandTracker.HAND_JOINT_PALM)
@@ -67,10 +62,7 @@ func _process(delta):
 
 	left_hand_origin.visible = left_using_hands
 	left_hand_origin.process_mode = Node.PROCESS_MODE_INHERIT if left_using_hands else Node.PROCESS_MODE_DISABLED
-
-	hands_text += "Left: hands=" + str(left_using_hands) + " controller=" + str(left_using_controller) + "\n"
-
-	### RIGHT HAND ###
+	
 	var right_using_hands := false
 	if right_hand_pose_detector and right_hand_pose_detector.hand_tracker:
 		var right_flags := right_hand_pose_detector.hand_tracker.get_hand_joint_flags(XRHandTracker.HAND_JOINT_PALM)
@@ -95,9 +87,3 @@ func _process(delta):
 
 	right_hand_origin.visible = right_using_hands
 	right_hand_origin.process_mode = Node.PROCESS_MODE_INHERIT if right_using_hands else Node.PROCESS_MODE_DISABLED
-
-	hands_text += "Right: hands=" + str(right_using_hands) + " controller=" + str(right_using_controller)
-
-	# Update debug label
-	if label:
-		label.text = hands_text
