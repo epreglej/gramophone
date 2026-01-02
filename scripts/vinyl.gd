@@ -29,10 +29,6 @@ var song: AudioStream:
 @export var _artist_b: String = "Unknown Artist B"
 
 
-func _ready() -> void:
-	enabled = false
-
-
 func _physics_process(_delta: float) -> void:
 	_update_side_from_orientation()
 
